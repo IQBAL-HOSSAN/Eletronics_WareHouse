@@ -8,3 +8,7 @@ header{
 .nav-link:hover{
     color: #db3636 !important;
 }
+
+.logOut-btn:hover{
+    color: #fff !important;
+}
