@@ -7,7 +7,7 @@ import Register from "./Pages/Register/Register";
 import Header from "./Components/Header/Header";
 import RequireAuth from "./auth/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
-import { ToastContainer } from "react-toastify";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -25,10 +25,8 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="*" element={<Register />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
-
-      <ToastContainer />
     </div>
   );
 }

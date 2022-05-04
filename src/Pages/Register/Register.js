@@ -9,10 +9,25 @@ import {
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import AfterBeforeEffect from "../../Components/AfterBeforeEffect/AfterBeforeEffect";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    watch,
+    getValues,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  const email = getValues("email");
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,8 +42,25 @@ const Register = () => {
   const [sendEmailVerification, verificationSending, verificationError] =
     useSendEmailVerification(auth);
 
-  const [sendPasswordResetEmail, resetSending, resetError] =
-    useSendPasswordResetEmail(auth);
+  // LOADING
+  if (loading || verificationSending) {
+    <p>Loading...</p>;
+  }
+
+  // ERROR HANDLING
+  let displayError;
+  if (error || verificationError) {
+    displayError = (
+      <p className="text-danger text-start">
+        Error: {error?.message} {verificationError?.message}
+      </p>
+    );
+
+    swal({
+      title: error?.message || verificationError?.message,
+      icon: "error",
+    });
+  }
 
   // FORM ON SUBMIT
   const onSubmit = async (data) => {
@@ -36,9 +68,13 @@ const Register = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await sendEmailVerification();
-    toast("send email");
+    await swal({
+      title: "Send email",
+      text: "You clicked the button!",
+      icon: "success",
+    });
 
-    await sendPasswordResetEmail(email);
+    navigate(from, { replace: true });
 
     // CREATE USER ON MONGODB DATABASE
     // const url = `http://localhost:8000/api/products`;
@@ -54,31 +90,43 @@ const Register = () => {
       .catch((err) => console.error("error", err));
   };
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-    }
-  }, [user]);
-
   return (
     <div className="py-5">
-      <h2 className="mb-4">Please Register!</h2>
-      <div className="form-container py-5">
-        <div className="form-body">
+      <div className="form-container col col-sm-6 col-md-6 col-lg-5 py-4 mx-auto">
+        <div className="form-body ">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              placeholder="Name"
-              {...register("name", { required: true })}
-            />
+            <h2 className="mb-4"> Register!</h2>
+            <input placeholder="Name" {...register("name")} />
             <input
               placeholder="Email"
-              {...register("email", { required: true })}
+              {...register("email", {
+                required: "This input is required.",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: `Please include an '@' in the email address. '${email}' is missing an '@`,
+                },
+              })}
             />
+            {errors?.email && (
+              <p className="text-danger text-start">{errors?.email?.message}</p>
+            )}
+
             <input
               placeholder="Password"
-              {...register("password", { required: true })}
+              {...register("password", {
+                required: "This input is required.",
+                // pattern: {
+                //   value:
+                //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
+                //   message: `Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character!`,
+                // },
+              })}
             />
-
+            {errors?.password && (
+              <p className="text-danger text-start">
+                {errors?.password?.message}
+              </p>
+            )}
             <input type="submit" value="Register" />
           </form>
 

@@ -48,21 +48,26 @@ const Header = () => {
             </Nav>
             <Nav>
               {user?.displayName || user?.email ? (
-                <Nav.Link
-                  className="btn btn-danger logOut-btn                "
-                  onClick={logOut}
-                >
-                  Log Out
-                </Nav.Link>
+                <Nav>
+                  <Nav.Link>{user?.displayName}</Nav.Link>
+                  <Nav.Link
+                    className="btn btn-danger logOut-btn                "
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </Nav.Link>
+                </Nav>
               ) : (
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
-              )}
+                <Nav>
+                  <Nav.Link as={Link} to="/login">
+                    Login
+                  </Nav.Link>
 
-              <Nav.Link as={Link} eventKey={2} to="/register">
-                Register
-              </Nav.Link>
+                  <Nav.Link as={Link} eventKey={2} to="/register">
+                    Register
+                  </Nav.Link>
+                </Nav>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

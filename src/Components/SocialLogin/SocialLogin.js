@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
+import "./SocialLogin.css";
+import { FaFacebook, FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import {
   useSignInWithFacebook,
   useSignInWithGithub,
@@ -7,6 +9,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const SocialLogin = () => {
   // sign in with google
@@ -30,12 +33,19 @@ const SocialLogin = () => {
   let displayError;
   if (googleError || githubError || facebookError) {
     displayError = (
-      <p className="text-danger">
-        {" "}
-        Error: {googleError?.message} {githubError?.message}{" "}
+      <p className="">
+        Error: {googleError?.message}
+        {githubError?.message}
         {facebookError?.message}
       </p>
     );
+
+    swal({
+      title:
+        googleError?.message || githubError?.message || facebookError?.message,
+      text: "You clicked the button!",
+      icon: "error",
+    });
   }
 
   // loading
@@ -66,25 +76,33 @@ const SocialLogin = () => {
 
   return (
     <div className="d-block">
-      {displayError}
       <button
         onClick={handleSignInWithGoogle}
-        className="d-block w-100 mt-3 py-2  rounded-pill"
+        className=" d-flex align-items-center w-100 mt-3 py-2  rounded-pill"
       >
-        <FaGoogle className="fs-4 me-2" /> Google Sign In
+        <div className="social-icon">
+          <FcGoogle className="fs-4  " />
+        </div>
+        <div className="social-name"> Google Sign In</div>
       </button>
       <button
         onClick={handleFacebookLogin}
         style={{ background: "#4267B2" }}
-        className="d-block w-100 mt-3 py-2 text-white rounded-pill border "
+        className="d-flex align-items-center w-100 mt-3 py-2 text-white rounded-pill border "
       >
-        <FaFacebook className="fs-4 me-2" /> Facebook Sign In
+        <div className="social-icon">
+          <FaFacebook className="fs-4 " />
+        </div>{" "}
+        <div className="social-name">Facebook Sign In</div>
       </button>
       <button
         onClick={handleSignInWithGithub}
-        className="d-block w-100 mt-3 py-2 border rounded-pill bg-black text-white"
+        className="d-flex align-items-center w-100 mt-3 py-2 border rounded-pill bg-black text-white"
       >
-        <FaGithub className="fs-4 me-2" /> Github Sign In
+        <div className="social-icon">
+          <FaGithub className="fs-4" />
+        </div>{" "}
+        <div className="social-name">Github Sign In</div>
       </button>
     </div>
   );
