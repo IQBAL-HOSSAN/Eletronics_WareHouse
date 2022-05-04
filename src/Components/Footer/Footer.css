@@ -1,10 +1,15 @@
-#footer{
+.footer-top{
     background-color: #3D3D3D;
 }
 
-#footer .under-line{
+.footer-top .under-line{
     height: 3px;
 }
-#footer li{
+.footer-top li{
     list-style: none;
+}
+
+/* footer-bottom */
+.footer-bottom{
+    background-color: #2F2F2F;
 }
