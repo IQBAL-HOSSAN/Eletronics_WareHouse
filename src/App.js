@@ -8,10 +8,11 @@ import Header from "./Components/Header/Header";
 import RequireAuth from "./auth/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
 import NotFound from "./Pages/NotFound/NotFound";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

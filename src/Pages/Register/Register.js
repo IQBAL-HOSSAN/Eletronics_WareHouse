@@ -51,7 +51,7 @@ const Register = () => {
   let displayError;
   if (error || verificationError) {
     displayError = (
-      <p className="text-danger text-start">
+      <p className="error-text text-danger text-start">
         Error: {error?.message} {verificationError?.message}
       </p>
     );
@@ -95,7 +95,7 @@ const Register = () => {
       <div className="form-container col col-sm-6 col-md-6 col-lg-5 py-4 mx-auto">
         <div className="form-body ">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="mb-4"> Register!</h2>
+            <h2 className="mb-4 text-center"> Register!</h2>
             <input placeholder="Name" {...register("name")} />
             <input
               placeholder="Email"
@@ -108,7 +108,9 @@ const Register = () => {
               })}
             />
             {errors?.email && (
-              <p className="text-danger text-start">{errors?.email?.message}</p>
+              <p className="error-text text-danger text-start">
+                {errors?.email?.message}
+              </p>
             )}
 
             <input
@@ -123,7 +125,7 @@ const Register = () => {
               })}
             />
             {errors?.password && (
-              <p className="text-danger text-start">
+              <p className="error-text text-danger text-start">
                 {errors?.password?.message}
               </p>
             )}

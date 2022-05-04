@@ -8,20 +8,25 @@ import {
   FaLocationArrow,
   FaChevronRight,
 } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { useForm } from "react-hook-form";
 
 const Footer = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <footer id="footer" className="py-5 bg-black text-light">
+    <footer id="footer" className="py-5 text-white">
       <Container>
-        <Row>
-          <Col>
+        <Row xs={1} sm={2} md={2} lg={4}>
+          <Col className="mb-4  mb-lg-0">
             <div className="mb-2">
               <h3>
                 <i>Lawyer Iqbal</i>
               </h3>
             </div>
             <div className=" under-line mb-3 bg-danger w-50"></div>
-            <div className="text-secondary">
+            <div className="text-white">
               {" "}
               <li>
                 <FaPhoneAlt></FaPhoneAlt> +880-018455-55047
@@ -34,46 +39,46 @@ const Footer = () => {
               </li>
             </div>
           </Col>
-          <Col>
+          <Col className="mb-4  mb-lg-0">
             <h3 className="mb-2">Quick Link</h3>
             <div className=" under-line mb-3 bg-danger w-25"></div>
             <Link
-              className="text-decoration-none text-secondary d-block mb-1"
+              className="text-decoration-none text-white d-block mb-1"
               to="/"
             >
               <FaChevronRight></FaChevronRight> Home
             </Link>
             <Link
-              className="text-decoration-none text-secondary d-block mb-1"
+              className="text-decoration-none text-white d-block mb-1"
               to="/services"
             >
               <FaChevronRight></FaChevronRight> Services
             </Link>
             <Link
-              className="text-decoration-none text-secondary d-block mb-1"
+              className="text-decoration-none text-white d-block mb-1"
               to="/blog"
             >
               <FaChevronRight></FaChevronRight> Blog
             </Link>
             <Link
-              className="text-decoration-none text-secondary d-block mb-1"
+              className="text-decoration-none text-white d-block mb-1"
               to="/login"
             >
               <FaChevronRight></FaChevronRight> Login
             </Link>
             <Link
-              className="text-decoration-none text-secondary d-bock mb-1"
+              className="text-decoration-none text-white d-bock mb-1"
               to="/signup"
             >
               <FaChevronRight></FaChevronRight> Sign Up
             </Link>
           </Col>
-          <Col>
+          <Col className="mb-4 mb-sm-0 mb-md-0 mb-lg-0">
             <h3 className="mb-2">Lawyer Area</h3>
             <div className=" under-line mb-3 bg-danger w-25"></div>
             <li className="mb-1">
               <Link
-                className="text-decoration-none text-secondary "
+                className="text-decoration-none text-white "
                 to="/practice-areas-list"
               >
                 <FaChevronRight></FaChevronRight> Practice Areas List
@@ -81,7 +86,7 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <Link
-                className="text-decoration-none text-secondary "
+                className="text-decoration-none text-white "
                 to="/practice-areas-details"
               >
                 <FaChevronRight></FaChevronRight> Practice Areas Detail
@@ -89,7 +94,7 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <Link
-                className="text-decoration-none text-secondary "
+                className="text-decoration-none text-white "
                 to="/attorney-list"
               >
                 <FaChevronRight></FaChevronRight> Attorney List
@@ -97,28 +102,45 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <Link
-                className="text-decoration-none text-secondary "
+                className="text-decoration-none text-white "
                 to="/attorney-details"
               >
                 <FaChevronRight></FaChevronRight> Attorney Detail
               </Link>
             </li>
             <li className="mb-1">
-              <Link
-                className="text-decoration-none text-secondary "
-                to="/f-a-q-s"
-              >
+              <Link className="text-decoration-none text-white " to="/f-a-q-s">
                 <FaChevronRight></FaChevronRight> FAQs
               </Link>
             </li>
             <li className="">
               <Link
-                className="text-decoration-none text-secondary "
+                className="text-decoration-none text-white "
                 to="/testimonials"
               >
                 <FaChevronRight></FaChevronRight> Testimonials
               </Link>
             </li>
+          </Col>
+          <Col>
+            <h3 className="mb-2">Opening Hours</h3>
+            <div className=" under-line mb-3 bg-danger w-25"></div>
+            <p>Mon to Fri: 09:30AM to 05:30PM</p>
+            <p className="border-top border-bottom border-secondary py-1">
+              <span>Sun:</span> <span>Closed</span>
+            </p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="d-flex ">
+                <input
+                  className="mb-0"
+                  placeholder="Enter you email"
+                  {...register("firstName")}
+                />
+                <button className="bg-danger mb-0">
+                  <MdEmail className="text-white fs-3"></MdEmail>
+                </button>
+              </div>
+            </form>
           </Col>
         </Row>
       </Container>

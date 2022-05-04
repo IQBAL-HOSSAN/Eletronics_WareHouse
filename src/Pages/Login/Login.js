@@ -35,7 +35,9 @@ const Login = () => {
   let displayError;
   if (error) {
     displayError = (
-      <p className="text-danger text-start">Error: {error?.message}</p>
+      <p className="error-text text-danger text-start">
+        Error: {error?.message}
+      </p>
     );
 
     swal({
@@ -68,7 +70,7 @@ const Login = () => {
     <div className="py-5">
       <div className="form-container col col-sm-6 col-md-6 col-lg-5 mx-auto">
         <div className="form-body py-4">
-          <h2 className="mb-4"> Login!</h2>
+          <h2 className="mb-4 text-center"> Login!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               placeholder="Email"
@@ -81,12 +83,14 @@ const Login = () => {
               })}
             />
             {errors?.email && (
-              <p className="text-danger text-start">{errors?.email?.message}</p>
+              <p className=" error-texttext-danger text-start">
+                {errors?.email?.message}
+              </p>
             )}
 
             <input placeholder="Password" {...register("password")} />
 
-            <input type="submit" />
+            <input className="lr-btn" type="submit" />
           </form>
           <AfterBeforeEffect />
           <SocialLogin />
