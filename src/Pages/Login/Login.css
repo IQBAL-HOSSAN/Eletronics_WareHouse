@@ -53,7 +53,7 @@
     font-weight: 200;
   }
   
-  button[type="submit"],
+  .lr-btn[type="submit"],
   input[type="submit"] {
     background: #ec5990;
     color: white;
@@ -66,13 +66,13 @@
     letter-spacing: 10px;
   }
   
-  button[type="submit"]:hover,
+  .lr-btn[type="submit"]:hover,
   input[type="submit"]:hover {
     background: #bf1650;
   }
   
-  button[type="submit"]:active,
-  input[type="button"]:active,
+  .lr-btn[type="submit"]:active,
+  input[type=".lr-btn"]:active,
   input[type="submit"]:active {
     transition: 0.3s all;
     transform: translateY(3px);
@@ -84,19 +84,19 @@
     opacity: 0.4;
   }
   
-  input[type="button"]:hover {
+  input[type=".lr-btn"]:hover {
     transition: 0.3s all;
   }
   
-  button[type="submit"],
-  input[type="button"],
+  .lr-btn[type="submit"],
+  input[type=".lr-btn"],
   input[type="submit"] {
     -webkit-appearance: none;
   }
   
   
   
-  button[type="button"] {
+  .lr-btn[type=".lr-btn"] {
     display: block;
     appearance: none;
     background: #333;
@@ -111,7 +111,7 @@
     margin-top: 30px;
   }
   
-  button .lr-btn {
+   .lr-btn {
     display: block;
     appearance: none;
     margin-top: 40px;

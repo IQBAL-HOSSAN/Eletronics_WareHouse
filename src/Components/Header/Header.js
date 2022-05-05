@@ -12,11 +12,11 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <header>
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="black"
+        bg=""
         variant="dark"
         className="py-3 "
         // fixed="top"
@@ -24,7 +24,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">
             <h3>
-              <i>Motors Warehouse</i>
+              <i>AutoMotors</i>
             </h3>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -51,7 +51,7 @@ const Header = () => {
                 <Nav>
                   <Nav.Link>{user?.displayName}</Nav.Link>
                   <Nav.Link
-                    className="btn btn-danger logOut-btn                "
+                    className="btn btn-danger logOut-btn"
                     onClick={logOut}
                   >
                     Log Out
@@ -72,7 +72,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
+    </header>
   );
 };
 

@@ -1,6 +1,8 @@
 
 header{
-    margin-bottom: 82px;
+    /* margin-bottom: 82px; */
+    background-color:  #2F2F2F;
+    
 }
 .nav-link{
     color: aliceblue !important;

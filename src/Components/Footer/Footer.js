@@ -24,7 +24,7 @@ const Footer = () => {
             <Col className="mb-4  mb-lg-0">
               <div className="mb-2">
                 <h3>
-                  <i>Lawyer Iqbal</i>
+                  <i>AutMotors</i>
                 </h3>
               </div>
               <div className=" under-line mb-3 bg-danger w-50"></div>
@@ -76,7 +76,7 @@ const Footer = () => {
               </Link>
             </Col>
             <Col className="mb-4 mb-sm-0 mb-md-0 mb-lg-0">
-              <h3 className="mb-2">Lawyer Area</h3>
+              <h3 className="mb-2">Service Areas</h3>
               <div className=" under-line mb-3 bg-danger w-25"></div>
               <li className="mb-1">
                 <Link
