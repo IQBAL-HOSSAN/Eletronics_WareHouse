@@ -13,6 +13,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Components/Footer/Footer";
 import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
+import AddItem from "./Pages/AddItem/AddItem";
 
 function App() {
   return (
@@ -41,6 +42,14 @@ function App() {
           element={
             <RequireAuth>
               <ManageInventories />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/addItem"
+          element={
+            <RequireAuth>
+              <AddItem />
             </RequireAuth>
           }
         ></Route>

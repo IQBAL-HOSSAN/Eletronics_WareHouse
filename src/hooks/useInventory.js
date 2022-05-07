@@ -1,12 +1,18 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const useInventory = () => {
   const [products, setProducts] = useState([]);
 
-  const url = `https://boiling-escarpment-44673.herokuapp.com/api/products`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => setProducts(data));
+  useEffect(() => {
+    const url = `https://boiling-escarpment-44673.herokuapp.com/api/products`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  // fetch(url)
+  //   .then((res) => res.json())
+  //   .then((data) => setProducts(data));
   return [products, setProducts];
 };
 

@@ -83,14 +83,14 @@ const Login = () => {
               })}
             />
             {errors?.email && (
-              <p className=" error-texttext-danger text-start">
+              <p className=" error-text text-danger text-start">
                 {errors?.email?.message}
               </p>
             )}
 
             <input placeholder="Password" {...register("password")} />
 
-            <input className="lr-btn" type="submit" />
+            <input className="lr-btn" type="submit" value="Login" />
           </form>
           <AfterBeforeEffect />
           <SocialLogin />

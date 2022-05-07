@@ -1,20 +1,30 @@
 import React from "react";
 import "./ManageInventoryItems.css";
-import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 const ManageInventoryItems = (props) => {
-  const { img, name, desc, price, quantity, supplierName } = props.item;
+  const { _id, img, name, desc, price, quantity, supplierName } = props.item;
 
-  const handleDeleItemBtn = () => {
-    console.log("delete");
+  const handleDeleItemBtn = (id) => {
+    const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/${id}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        // Indicates the content
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
+
   return (
     <div className="d-flex p-2 shadow rounded mb-4">
       <img src={img} height="200px" width="250px" alt="" />
       <div className="mx-3">
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{desc}</Card.Text>
+        <h3>{name}</h3>
+        <p>{desc}</p>
         <p>
           <strong>Price:</strong> $ {price}
         </p>
@@ -26,7 +36,10 @@ const ManageInventoryItems = (props) => {
         </p>
       </div>
       <div className="mi-delete-btn d-flex  align-items-center justify-content-end">
-        <Button onClick={handleDeleItemBtnnpm } className="btn btn-danger me-5">
+        <Button
+          onClick={() => handleDeleItemBtn(_id)}
+          className="btn btn-danger me-5"
+        >
           Delete
         </Button>
       </div>
