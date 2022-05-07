@@ -11,6 +11,8 @@ import RequireAuth from "./auth/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Components/Footer/Footer";
+import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
+import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 
 function App() {
   return (
@@ -23,6 +25,22 @@ function App() {
           element={
             <RequireAuth>
               <Inventory />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequireAuth>
+              <InventoryItemDetails />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/manageInventories"
+          element={
+            <RequireAuth>
+              <ManageInventories />
             </RequireAuth>
           }
         ></Route>

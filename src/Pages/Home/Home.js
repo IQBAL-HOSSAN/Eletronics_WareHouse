@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
+import InventoryItems from "../../Components/InventoryItems/InventoryItems";
 import Slider from "../../Components/Slider/Slider";
 
 const Home = () => {
-  useEffect(() => {
-    fetch();
-  }, []);
   return (
     <div>
       <Slider />
       <main>
-        <h2>home</h2>
         {/* items */}
         <div className="recent-items"></div>
+        <InventoryItems />
       </main>
     </div>
   );

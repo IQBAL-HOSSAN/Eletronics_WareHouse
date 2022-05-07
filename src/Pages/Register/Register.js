@@ -14,7 +14,6 @@ import swal from "sweetalert";
 const Register = () => {
   const {
     register,
-    watch,
     getValues,
     formState: { errors },
     handleSubmit,
@@ -77,11 +76,11 @@ const Register = () => {
     navigate(from, { replace: true });
 
     // CREATE USER ON MONGODB DATABASE
-    // const url = `http://localhost:8000/api/products`;
-    fetch(`http://localhost:8000/api/auth/register`, {
+    // const url = `https://boiling-escarpment-44673.herokuapp.com/api/products`;
+    fetch(`https://boiling-escarpment-44673.herokuapp.com/api/auth/register`, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(data),
     })
