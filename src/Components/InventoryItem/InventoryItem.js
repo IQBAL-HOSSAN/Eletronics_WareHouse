@@ -11,35 +11,33 @@ const InventoryItem = (props) => {
     navigate(`/inventory/${id}`);
   };
   return (
-    <div>
-      <Col>
-        <Card className="mb-4">
-          <Card.Img className="p-3" variant="top" src={img} />
-          <Card.Body>
-            <Card.Title>{name}</Card.Title>
-            <Card.Text>{desc}</Card.Text>
-            <p>
-              <strong>Price:</strong> $ {price}
-            </p>
-            <p>
-              <strong>Quantity:</strong> {quantity}
-            </p>
-            <p>
-              <strong>Sold:</strong> {sold}
-            </p>
-            <p>
-              <strong>SupplierName:</strong> {supplierName}
-            </p>
-            <Button
-              onClick={() => navigateToInventoryItemDetails(_id)}
-              className="btn btn-danger"
-            >
-              Stock Update
-            </Button>
-          </Card.Body>
-        </Card>
-      </Col>
-    </div>
+    <Col>
+      <Card className="mb-4">
+        <Card.Img className="p-3" variant="top" src={img} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>{desc}</Card.Text>
+          <p>
+            <strong>Price:</strong> $ {price}
+          </p>
+          <p>
+            <strong>Quantity:</strong> {quantity}
+          </p>
+          <p>
+            <strong>Sold:</strong> {sold}
+          </p>
+          <p>
+            <strong>SupplierName:</strong> {supplierName}
+          </p>
+          <Button
+            onClick={() => navigateToInventoryItemDetails(_id)}
+            className="btn btn-danger"
+          >
+            Stock Update
+          </Button>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 

@@ -16,7 +16,7 @@ const InventoryItemDetails = () => {
   const storeQuantity = getValues("storeQuantity");
 
   const onSubmit = async (data) => {
-    const itemQuantity = parseInt(quantity);
+    const itemQuantity = quantity;
     const setSoreQuantity = parseInt(storeQuantity);
     const updateInfo = {
       quantity: itemQuantity + setSoreQuantity,
@@ -34,6 +34,7 @@ const InventoryItemDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };
@@ -57,6 +58,7 @@ const InventoryItemDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };

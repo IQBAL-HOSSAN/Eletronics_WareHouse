@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import useInventory from "../../hooks/useInventory";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
@@ -11,7 +12,7 @@ const MyItems = () => {
   useEffect(() => {
     const getProducts = async () => {
       const email = user.email;
-      const url = `https://boiling-escarpment-44673.herokuapp.com/api/products?email=${email}`;
+      const url = `https://boiling-escarpment-44673.herokuapp.com/myItem?email=${email}`;
       fetch(url, {
         method: "GET",
         headers: {

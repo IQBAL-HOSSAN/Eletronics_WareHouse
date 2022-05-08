@@ -6,6 +6,7 @@ import useInventory from "../../hooks/useInventory";
 
 const Inventory = () => {
   const [products] = useInventory([]);
+  console.log(products);
   return (
     <section className="container py-5">
       <CommonBanner img="" />

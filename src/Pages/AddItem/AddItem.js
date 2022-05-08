@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert";
+import useInventory from "../../hooks/useInventory";
 
 const AddItem = () => {
+  const [setProducts] = useInventory([]);
   const {
     register,
     getValues,
@@ -23,7 +25,7 @@ const AddItem = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result))
+      .then((result) => setProducts(result))
       .catch((err) => console.log(err));
 
     swal({

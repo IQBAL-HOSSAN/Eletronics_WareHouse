@@ -7,6 +7,7 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 
 const InventoryItems = () => {
   const [products] = useInventory([]);
+
   const maxItems = products.slice(0, 6);
 
   const navigate = useNavigate();
