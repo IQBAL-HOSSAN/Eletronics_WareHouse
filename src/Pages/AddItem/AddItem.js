@@ -58,23 +58,23 @@ const AddItem = () => {
                 },
               })}
             />
-            {errors?.name && (
+            {errors?.img && (
               <p className=" error-text text-danger text-start">
-                {errors?.name?.message}
+                {errors?.img?.message}
               </p>
             )}
             <input
               placeholder="Item Description"
               {...register("desc", {
-                required: "This input is required.",
+                // required: "This input is required.",
                 pattern: {
                   message: ``,
                 },
               })}
             />
-            {errors?.name && (
+            {errors?.desc && (
               <p className=" error-text text-danger text-start">
-                {errors?.name?.message}
+                {errors?.desc?.message}
               </p>
             )}
             <input
@@ -87,9 +87,9 @@ const AddItem = () => {
                 },
               })}
             />
-            {errors?.name && (
+            {errors?.quantity && (
               <p className=" error-text text-danger text-start">
-                {errors?.name?.message}
+                {errors?.quantity?.message}
               </p>
             )}
             <input
@@ -102,9 +102,9 @@ const AddItem = () => {
                 },
               })}
             />
-            {errors?.name && (
+            {errors?.price && (
               <p className=" error-text text-danger text-start">
-                {errors?.name?.message}
+                {errors?.price?.message}
               </p>
             )}
             <input
@@ -116,9 +116,23 @@ const AddItem = () => {
                 },
               })}
             />
-            {errors?.name && (
+            {errors?.supplierName && (
               <p className=" error-text text-danger text-start">
-                {errors?.name?.message}
+                {errors?.supplierName?.message}
+              </p>
+            )}
+            <input
+              placeholder="Email"
+              {...register("email", {
+                required: "This input is required.",
+                pattern: {
+                  message: ``,
+                },
+              })}
+            />
+            {errors?.email && (
+              <p className=" error-text text-danger text-start">
+                {errors?.email?.message}
               </p>
             )}
 

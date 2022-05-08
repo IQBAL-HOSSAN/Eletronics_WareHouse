@@ -1,9 +1,11 @@
 import React from "react";
 import "./ManageInventoryItems.css";
 import Button from "react-bootstrap/Button";
+import useInventory from "../../../hooks/useInventory";
 
 const ManageInventoryItems = (props) => {
   const { _id, img, name, desc, price, quantity, supplierName } = props.item;
+  const [products, setProducts] = useInventory([]);
 
   const handleDeleItemBtn = (id) => {
     const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/${id}`;
@@ -16,7 +18,12 @@ const ManageInventoryItems = (props) => {
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        const remaining = products.filter((product) => product._id !== id);
+        setProducts(remaining);
+      });
+    console.log(products);
   };
 
   return (

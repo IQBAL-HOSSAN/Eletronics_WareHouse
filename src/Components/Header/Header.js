@@ -24,7 +24,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">
             <h3>
-              <i>AutoMotors</i>
+              <i>MyElectronics</i>
             </h3>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -36,9 +36,21 @@ const Header = () => {
               <Nav.Link as={Link} to="/inventory">
                 Inventory
               </Nav.Link>
-              <Nav.Link as={Link} to="/checkout">
-                Check Out
-              </Nav.Link>
+              {user ? (
+                <Nav>
+                  <Nav.Link as={Link} to="/manageInventories">
+                    Manage Inventory
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/addItem">
+                    Add Item
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/MyItems">
+                    My Items
+                  </Nav.Link>
+                </Nav>
+              ) : (
+                ""
+              )}
               <Nav.Link as={Link} to="/blog">
                 Blog
               </Nav.Link>

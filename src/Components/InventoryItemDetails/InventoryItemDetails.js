@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
@@ -8,15 +8,28 @@ const InventoryItemDetails = () => {
   const { id } = useParams();
   const [product] = useInventoryDetails(id);
   const { img, name, desc, price, quantity, supplierName } = product;
-  // const [itemQuantity, setItemQuantity] = useState();
 
-  let restQuantity = parseInt(quantity);
   const handleDeliverBtn = () => {
-    if (restQuantity >= 1) {
-      restQuantity -= 1;
-    }
-    console.log(restQuantity);
+    const itemQuantity = quantity;
+
+    const updateInfo = {
+      quantity: itemQuantity - 1,
+    };
+
+    const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/${id}`;
+
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updateInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
+
   // console.log(restQuantity);
 
   return (
@@ -39,12 +52,14 @@ const InventoryItemDetails = () => {
                     <p>
                       <strong>Price:</strong> $ {price}
                     </p>
-                    <p>{/* <strong>Quantity:</strong> {restQuantity} */}</p>
+                    <p>
+                      <strong>Quantity:</strong> {quantity}
+                    </p>
                     <p>
                       <strong>SupplierName:</strong> {supplierName}
                     </p>
                     <Button
-                      onClick={handleDeliverBtn}
+                      onClick={() => handleDeliverBtn()}
                       className="btn btn-danger"
                     >
                       Deliver

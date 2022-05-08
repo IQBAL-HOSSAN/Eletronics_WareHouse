@@ -1,14 +1,12 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Slider.css";
-import { Container } from "react-bootstrap";
 
 import Slider from "react-slick";
 
-import img1 from "../../imgs/sliderImages/slide-show1.jpg";
-import img2 from "../../imgs/sliderImages/slide-show2.jpg";
-import img3 from "../../imgs/sliderImages/slide-show3.jpg";
+// import img1 from "../../imgs/sliderImages/slide-show1.jpg";
+// import img2 from "../../imgs/sliderImages/slide-show2.jpg";
+// import img3 from "../../imgs/sliderImages/slide-show3.jpg";
 
 const slickSlider = () => {
   const settings = {
@@ -25,13 +23,25 @@ const slickSlider = () => {
     <>
       <Slider {...settings}>
         <div>
-          <img src={img1} height="600px" width="100%" />
+          <img
+            src="https://www.electronics.com.bd/image/cache/catalog/banner/2022%20Banners/Front_Big_Banners/Fentastic-Products-1760x880.webp"
+            height="600px"
+            width="100%"
+          />
         </div>
         <div>
-          <img src={img2} height="600px" width="100%" />
+          <img
+            src="https://www.electronics.com.bd/image/cache/catalog/banner/2022%20Banners/Front_Big_Banners/Default-resolution%20/Express-Delivery-opt-1760x880.webp"
+            height="600px"
+            width="100%"
+          />
         </div>
         <div>
-          <img src={img3} height="600px" width="100%" />
+          <img
+            src="https://www.electronics.com.bd/image/cache/catalog/banner/2022%20Banners/Front_Big_Banners/Default-resolution%20/WROPO-1760x880.webp"
+            height="600px"
+            width="100%"
+          />
         </div>
       </Slider>
     </>

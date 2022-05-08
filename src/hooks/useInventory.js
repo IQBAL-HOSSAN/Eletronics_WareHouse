@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const useInventory = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const url = `https://boiling-escarpment-44673.herokuapp.com/api/products`;
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-type": " application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

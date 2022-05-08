@@ -24,7 +24,7 @@ const Footer = () => {
             <Col className="mb-4  mb-lg-0">
               <div className="mb-2">
                 <h3>
-                  <i>AutMotors</i>
+                  <i>MyElectronics</i>
                 </h3>
               </div>
               <div className=" under-line mb-3 bg-danger w-50"></div>
@@ -91,7 +91,7 @@ const Footer = () => {
                   className="text-decoration-none text-white "
                   to="/practice-areas-details"
                 >
-                  <FaChevronRight></FaChevronRight> Practice Areas Detail
+                  <FaChevronRight></FaChevronRight> Delivery Areas Detail
                 </Link>
               </li>
               <li className="mb-1">
@@ -99,7 +99,7 @@ const Footer = () => {
                   className="text-decoration-none text-white "
                   to="/attorney-list"
                 >
-                  <FaChevronRight></FaChevronRight> Attorney List
+                  <FaChevronRight></FaChevronRight> Area List
                 </Link>
               </li>
               <li className="mb-1">
@@ -107,7 +107,7 @@ const Footer = () => {
                   className="text-decoration-none text-white "
                   to="/attorney-details"
                 >
-                  <FaChevronRight></FaChevronRight> Attorney Detail
+                  <FaChevronRight></FaChevronRight> Area List Detail
                 </Link>
               </li>
               <li className="mb-1">
@@ -150,6 +150,7 @@ const Footer = () => {
           </Row>
         </Container>
       </div>
+      {/* footer bottom */}
       <div className="footer-bottom py-3 text-secondary">
         <Container>
           <Row xs={1} sm={1} md={2} lg={2} xl={2}>
