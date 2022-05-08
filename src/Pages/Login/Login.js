@@ -12,6 +12,10 @@ import "./Login.css";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending] =
+    useSendPasswordResetEmail(auth);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -92,6 +96,12 @@ const Login = () => {
 
             <input className="lr-btn" type="submit" value="Login" />
           </form>
+          <p>
+            Forget Password?{" "}
+            <Button onClick={resetPassword} variant="link">
+              Reset Password
+            </Button>
+          </p>
           <AfterBeforeEffect />
           <SocialLogin />
         </div>
