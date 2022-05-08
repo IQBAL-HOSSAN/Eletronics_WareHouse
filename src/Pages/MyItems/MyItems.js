@@ -28,22 +28,25 @@ const MyItems = () => {
   }, [user]);
 
   const handleDeleItemBtn = (id) => {
-    const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/${id}`;
-    fetch(url, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-        // Indicates the content
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        const remaining = products.filter((product) => product._id !== id);
-        setProducts(remaining);
+    const decision = window.confirm("Are you sure want to delete the item?");
+    if (decision) {
+      const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/${id}`;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          // Indicates the content
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => res.json())
+        .then((res) => {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
   return (
     <section className="container py-5">
