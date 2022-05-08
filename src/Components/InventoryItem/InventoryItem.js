@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
 const InventoryItem = (props) => {
-  const { _id, img, name, desc, price, quantity, supplierName } = props.item;
+  const { _id, img, name, desc, price, quantity, sold, supplierName } =
+    props.item;
   const navigate = useNavigate();
   const navigateToInventoryItemDetails = (id) => {
     navigate(`/inventory/${id}`);
@@ -22,6 +23,9 @@ const InventoryItem = (props) => {
             </p>
             <p>
               <strong>Quantity:</strong> {quantity}
+            </p>
+            <p>
+              <strong>Sold:</strong> {sold}
             </p>
             <p>
               <strong>SupplierName:</strong> {supplierName}

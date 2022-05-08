@@ -15,6 +15,7 @@ import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryIte
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 import AddItem from "./Pages/AddItem/AddItem";
 import MyItems from "./Pages/MyItems/MyItems";
+import Blog from "./Pages/Blog/Blog";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />

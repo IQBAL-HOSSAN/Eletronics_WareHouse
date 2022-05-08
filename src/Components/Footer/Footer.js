@@ -76,14 +76,14 @@ const Footer = () => {
               </Link>
             </Col>
             <Col className="mb-4 mb-sm-0 mb-md-0 mb-lg-0">
-              <h3 className="mb-2">Service Areas</h3>
+              <h3 className="mb-2">Delivery Areas</h3>
               <div className=" under-line mb-3 bg-danger w-25"></div>
               <li className="mb-1">
                 <Link
                   className="text-decoration-none text-white "
                   to="/practice-areas-list"
                 >
-                  <FaChevronRight></FaChevronRight> Practice Areas List
+                  <FaChevronRight></FaChevronRight> Delivery Areas List
                 </Link>
               </li>
               <li className="mb-1">
@@ -94,14 +94,7 @@ const Footer = () => {
                   <FaChevronRight></FaChevronRight> Delivery Areas Detail
                 </Link>
               </li>
-              <li className="mb-1">
-                <Link
-                  className="text-decoration-none text-white "
-                  to="/attorney-list"
-                >
-                  <FaChevronRight></FaChevronRight> Area List
-                </Link>
-              </li>
+
               <li className="mb-1">
                 <Link
                   className="text-decoration-none text-white "

@@ -5,11 +5,15 @@ import swal from "sweetalert";
 const AddItem = () => {
   const {
     register,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
+  const email = getValues("email");
+  console.log(email);
   const onSubmit = (data) => {
+    console.log(data);
     const url = `https://boiling-escarpment-44673.herokuapp.com/api/products/`;
     fetch(url, {
       method: "POST",
@@ -126,12 +130,13 @@ const AddItem = () => {
               {...register("email", {
                 required: "This input is required.",
                 pattern: {
-                  message: ``,
+                  value: /\S+@\S+\.\S+/,
+                  message: `Please include an '@' in the email address. '${email}' is missing an '@`,
                 },
               })}
             />
             {errors?.email && (
-              <p className=" error-text text-danger text-start">
+              <p className="error-text text-danger text-start">
                 {errors?.email?.message}
               </p>
             )}
